@@ -27,7 +27,7 @@ public class Room {
     public void mainMenu(String input){
         if (input.equalsIgnoreCase("look")) {
             System.out.println("You look around");
-            System.out.println("You are in Room " + roomId +
+            System.out.println("You are in " + roomName +
                     "\nNorth: " + roomPartner(1) +
                     "\nEast: " + roomPartner(2) +
                     "\nSouth: " + roomPartner(3) +
@@ -109,30 +109,31 @@ public class Room {
         }
         return roomId;
     }
+
     public boolean validDirection(String input){
-        if ((input.equalsIgnoreCase("Go North")) || (input.equalsIgnoreCase("Go N"))) {
+        if ((input.equalsIgnoreCase("Go North")) || (input.equalsIgnoreCase("Go N"))||(input.equalsIgnoreCase("North")) || (input.equalsIgnoreCase("N"))) {
             currentDirection="North";
             return north;
-        } else if ((input.equalsIgnoreCase("Go East")) || (input.equalsIgnoreCase("Go E"))) {
+        } else if ((input.equalsIgnoreCase("Go East")) || (input.equalsIgnoreCase("Go E"))||(input.equalsIgnoreCase("East")) || (input.equalsIgnoreCase("E"))) {
             currentDirection="East";
             return east;
-        } else if ((input.equalsIgnoreCase("Go South")) || (input.equalsIgnoreCase("Go S"))) {
+        } else if ((input.equalsIgnoreCase("Go South")) || (input.equalsIgnoreCase("Go S"))||(input.equalsIgnoreCase("South")) || (input.equalsIgnoreCase("S"))) {
             currentDirection="South";
             return south;
-        } else if ((input.equalsIgnoreCase("Go West")) || (input.equalsIgnoreCase("Go W"))) {
+        } else if ((input.equalsIgnoreCase("Go West")) || (input.equalsIgnoreCase("Go W"))||(input.equalsIgnoreCase("West")) || (input.equalsIgnoreCase("W"))) {
             currentDirection="West";
             return west;
         }
         return false;
     }
     public boolean directionCheck(String input){
-        if ((input.equalsIgnoreCase("Go North")) || (input.equalsIgnoreCase("Go N"))){
+        if ((input.equalsIgnoreCase("Go North")) || (input.equalsIgnoreCase("Go N"))||(input.equalsIgnoreCase("North")) || (input.equalsIgnoreCase("N"))){
             return true;
-        }if ((input.equalsIgnoreCase("Go East")) || (input.equalsIgnoreCase("Go E"))){
+        }if ((input.equalsIgnoreCase("Go East")) || (input.equalsIgnoreCase("Go E"))||(input.equalsIgnoreCase("East")) || (input.equalsIgnoreCase("E"))){
             return true;
-        }if ((input.equalsIgnoreCase("Go South")) || (input.equalsIgnoreCase("Go S"))){
+        }if ((input.equalsIgnoreCase("Go South")) || (input.equalsIgnoreCase("Go S"))||(input.equalsIgnoreCase("South")) || (input.equalsIgnoreCase("S"))){
             return true;
-        }if ((input.equalsIgnoreCase("Go West")) || (input.equalsIgnoreCase("Go W"))){
+        }if ((input.equalsIgnoreCase("Go West")) || (input.equalsIgnoreCase("Go W"))||(input.equalsIgnoreCase("West")) || (input.equalsIgnoreCase("W"))){
             return true;
         }return false;
     }

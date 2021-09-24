@@ -20,17 +20,20 @@ public class Adventure {
         currentRoom=room[0];
 
         while(true){
-            System.out.println("Hvilken vej vil du gå?");
+            System.out.println("Which direction would you like to go?");
             String direction = sc.nextLine();
-            if(currentRoom.directionCheck(direction)) {
+
+            if(currentRoom.validDirection(direction)) {
                 int nextRoom=currentRoom.travelMenu(direction);
                 currentRoom.setRoomPartner(room[nextRoom]);
                 currentRoom = room[nextRoom];
-                System.out.println(currentRoom.roomId); //Du har skiftet rum
+                System.out.println("You enter " + currentRoom.roomName); //Du har skiftet rum
             }
+
             else if(currentRoom.commandCheck(direction)){
                 currentRoom.mainMenu(direction);
             }
+
             else {
                 System.out.println("This command does not exist");
             }

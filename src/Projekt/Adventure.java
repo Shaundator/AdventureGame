@@ -16,6 +16,7 @@ public class Adventure {
         room[6] = new Room("Room 7", 6, true,true,false,false);
         room[7] = new Room("Room 8", 7, true,true,false,true);
         room[8] = new Room("Room 9", 8, true,false,false,true);
+        Room theVoid = new Room("Void");
         Room currentRoom=null;
         currentRoom=room[0];
 
@@ -29,11 +30,16 @@ public class Adventure {
                 currentRoom = room[nextRoom];
                 System.out.println("You enter " + currentRoom.roomName); //Du har skiftet rum
             }
+            else if(currentRoom.directionCheck(direction)){
+                if(!currentRoom.validDirection(direction)){
+                    currentRoom.setRoomPartner(theVoid);
+                    System.out.println("You cannot walk in this direction");
+                }
+            }
 
             else if(currentRoom.commandCheck(direction)){
                 currentRoom.mainMenu(direction);
             }
-
             else {
                 System.out.println("This command does not exist");
             }

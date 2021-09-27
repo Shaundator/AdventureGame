@@ -103,13 +103,6 @@ public class Room {
     }
 
     //setCommands
-    public int travelMenu(String input){
-        if(validDirection(input)){
-            return setRoomID();
-        }
-        System.out.println("This is not a valid direction");
-        return roomId;
-    }
     public int setRoomID(){
         if(currentDirection.equalsIgnoreCase("north")){
             return (roomId-3);
@@ -151,11 +144,19 @@ public class Room {
             }
         }
     }
+    public int travelMenu(String input){
+        if(validDirection(input)){
+            return setRoomID();
+        }
+        System.out.println("This is not a valid direction");
+        return roomId;
+    }
     public boolean validDirection(String input){
         if ((input.equalsIgnoreCase("Go North")) || (input.equalsIgnoreCase("Go N"))||(input.equalsIgnoreCase("North")) || (input.equalsIgnoreCase("N"))) {
             currentDirection="North";
             return north;
-        } else if ((input.equalsIgnoreCase("Go East")) || (input.equalsIgnoreCase("Go E"))||(input.equalsIgnoreCase("East")) || (input.equalsIgnoreCase("E"))) {
+        }
+        else if ((input.equalsIgnoreCase("Go East")) || (input.equalsIgnoreCase("Go E"))||(input.equalsIgnoreCase("East")) || (input.equalsIgnoreCase("E"))) {
             currentDirection="East";
             return east;
         } else if ((input.equalsIgnoreCase("Go South")) || (input.equalsIgnoreCase("Go S"))||(input.equalsIgnoreCase("South")) || (input.equalsIgnoreCase("S"))) {

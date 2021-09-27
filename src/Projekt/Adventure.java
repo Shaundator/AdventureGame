@@ -24,19 +24,18 @@ public class Adventure {
             System.out.println("Which direction would you like to go?");
             String direction = sc.nextLine();
 
-            if(currentRoom.validDirection(direction)) {
-                int nextRoom=currentRoom.travelMenu(direction);
-                currentRoom.setRoomPartner(room[nextRoom]);
-                currentRoom = room[nextRoom];
-                System.out.println("You enter " + currentRoom.roomName); //Du har skiftet rum
-            }
-            else if(currentRoom.directionCheck(direction)){
-                if(!currentRoom.validDirection(direction)){
+            if(currentRoom.directionCheck(direction)){
+                if(currentRoom.validDirection(direction)) {
+                    int nextRoom = currentRoom.travelMenu(direction);
+                    currentRoom.setRoomPartner(room[nextRoom]);
+                    currentRoom = room[nextRoom];
+                    System.out.println("You enter " + currentRoom.roomName); //Du har skiftet rum
+                }
+                else{
                     currentRoom.setRoomPartner(theVoid);
-                    System.out.println("You cannot walk in this direction");
+                    System.out.println("You cannot walk this direction");
                 }
             }
-
             else if(currentRoom.commandCheck(direction)){
                 currentRoom.mainMenu(direction);
             }
